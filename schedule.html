@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style/calendar.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+
+    <title> Schedule </title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content-wrap">
+            <div class="content-left">
+                <div class="main-wrap">
+                    <div id="main-day" class="main-day"></div>
+                    <div id="main-date" class="main-date"></div>
+                </div>
+                <div class="todo-wrap">
+                    <div class="todo-title">Schedule</div>
+                    <form class="input-form" id="schedule-form">
+                        <input type="text" placeholder="please write here!!" id="input-box" class="input-box" required>
+                        <button type="button" id="input-data" class="input-data">INPUT</button>
+                    </form>
+                    <ul id="input-list" class="input-list"></ul>
+                </div>
+            </div>
+            <div class="content-right">
+                <button id="btn-today"> TODAY </button>
+                <table id="calendar">
+                    <thead>
+                        <tr class="btn-wrap clearfix">
+                            <td>
+                                <label id="prev">
+                                    &#60;
+                                </label>
+                            </td>
+                            <td id="current-year-month" colspan="5"></td>
+                            <td>
+                                <label id="next">
+                                    &#62;
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sun">Sun</td>
+                            <td>Mon</td>
+                            <td>Tue</td>
+                            <td>Wed</td>
+                            <td>Thu</td>
+                            <td>Fri</td>
+                            <td class="sat">Sat</td>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body" class="calendar-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal hidden">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <form id="amend-form">
+                <input type="text" class="amend-box" required>
+                <button type="button" class="amend-data">수정</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script src="js/calendar.js"></script>
+<script src="js/store.js"></script>
+</html>

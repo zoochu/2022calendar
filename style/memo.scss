@@ -1,0 +1,185 @@
+@import './common.scss';
+@import './reset.scss';
+
+:root{
+    --main-bg-color: #ddcdbd;
+    --border-color: #515c42;
+    --memo-bg-color: #ede6de;
+}
+*{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-con;
+}
+html,body{
+    width: 100%;
+    height:100vh;
+    background-color: var(--main-bg-color);
+}
+.navbar{
+    width: 100%;
+    @include flexbox(flex-start);
+    padding: 20px 30px;
+    
+    .burger-menu{
+        width: 40px; height: 20px;
+        position: relative;
+        z-index: 10;
+        transition: .5s;
+        cursor: pointer;
+
+        &.active{ margin-left: 15%;}
+        .bar{
+            position: absolute;
+            left: 0;
+            width: 100%; height: 3px;
+            background-color: #c6c1bf;
+            transition: 0.5s;
+        }
+    }  
+    .bar:nth-child(1){ top: 0;}
+
+.bar:nth-child(2){ top: calc(50% - 1px);}
+
+.bar:nth-child(3){ bottom: 0;}
+
+.burger-menu.active .bar{background-color: #fff;}
+.burger-menu.active .bar:nth-child(1){
+  top: calc(50% - 1px);
+  transform: rotate(45deg);
+}
+.burger-menu.active .bar:nth-child(2){
+  top: calc(50% - 1px);
+  opacity: 0;
+}
+.burger-menu.active .bar:nth-child(3){
+  bottom: calc(50% - 1px);
+  transform: rotate(-45deg);
+}
+
+
+
+.menubox{
+  @include column-flexbox;
+  position: absolute;
+  top: 0; left: -20%;
+  width: 20%; height: 100%;
+  background-color: $color-main;
+  transition: 0.5s;
+
+  &.active{
+    left: 0;
+  }
+}
+
+
+.item{
+  width: 100%;
+  padding: 0 30px;
+  margin: 0;
+  cursor: pointer;
+
+  a{
+    text-decoration: none;
+    color: #5d5c58;
+    font-size: $font-size-32;
+    font-style: italic;
+    font-weight: 500;
+    padding-left: 10px;
+
+    &:hover{
+      color: #babd11;
+    }
+
+    li{
+      font-family: $font-con;
+      padding: 10px;
+    }
+  }
+}
+}
+main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    .board{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        bottom: 10px;
+        right: 10px;
+        overflow: hidden;
+    
+        .memo{
+            position: absolute;
+            border: 1px solid var(--border-color);
+            background-color: var(--memo-bg-color);
+            
+            top:10px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+        }
+        .move{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 16px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: grab;
+        }
+        .close{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 16px;
+            height:100%;
+            border-right: 1px solid var(--border-color);
+            background-color: #515c42;
+            cursor: pointer;
+        }
+        .resize{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width:10px;
+            height: 10px;
+            border-top:1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+            cursor: se-resize;
+        }
+        .text{
+            position: absolute;
+            top:16px;
+            width: 100%;
+            height: calc(100% - 16px);
+            background-color: transparent;
+            resize: none;
+            color: var(--border-color);
+            padding: 5px;
+            outline: none;
+            font-size: 18px;
+        }
+        .selection{
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.372);
+            pointer-events: none;
+        }
+    }
+
+}
+
+
+canvas{
+    position: absolute;
+    top:10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    z-index: -1;
+}

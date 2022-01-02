@@ -1,0 +1,44 @@
+$font-main: 'Poiret One', cursive;
+$font-con: 'Roboto', sans-serif;
+
+$color-main: #ede6de;
+$color-green: #515c42;
+$color-gray:#5d5c58;
+
+$font-size-16: 1rem;
+$font-size-24: 1.5rem;
+$font-size-32: 2rem;
+$font-size-48: 3rem;
+$font-size-64: 4rem;
+$font-size-80: 5rem;
+
+@mixin flexbox($jc: center, $ai: center) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin inline-flexbox($jc: center, $ai: center) {
+  display: inline-flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin column-flexbox($jc: center, $ai: center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+
+@mixin pos-center($type: absolute) {
+  @if ($type == absolute or $type == fixed) {
+    position: $type;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style/todo.css" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <!-- Script -->
+    <script src="./js/todo.js" type="module" defer></script>
+  </head>
+  <body>
+    <main>
+      <!-- Header: Add Item -->
+      <header class="main-header">
+        <h1>ToDoList</h1>
+        <button class="btn blue toggle" title="할 일 추가하기">
+          <svg
+            class="black"
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+          >
+            <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" />
+          </svg>
+        </button>
+      </header>
+      <section class="add-todo">
+        <div class="border-container">
+          <textarea class="txtarea" name="" cols="30" rows="10"></textarea>
+          <div class="buttons">
+            <button class="btn toggle">취소</button>
+            <button class="btn add">추가하기</button>
+          </div>
+        </div>
+      </section>
+      <div class="main-container">
+        <!-- ToDoList: Incomplete Items -->
+        <section class="incomplete">
+          <header class="todos-header">
+            <h2>진행중인 할 일 <span class="cnt"></span>개</h2>
+          </header>
+          <ul class="todos"></ul>
+        </section>
+        <!-- ToDoList: Completed Items -->
+        <section class="complete">
+          <ul class="todos"></ul>
+          <header class="todos-header">
+            <h2 class="toggle">
+              완료된 할 일 <span class="cnt"></span>개 보기
+            </h2>
+            <button
+              class="btn dark delete-all"
+              title="완료된 할 일 전부 삭제하기"
+            >
+              <svg
+                class="black"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"
+                />
+              </svg>
+            </button>
+          </header>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
