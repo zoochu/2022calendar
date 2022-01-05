@@ -9,7 +9,7 @@
     
     background-color: $color-main;
     /* Main Color */
-    --color-white: #f9f6f6;
+    // --color-white: #f9f6f6;
     --color-gray: #e6e5e5;
     --color-gray-dark: #5d5c58;
     --color-black: #333;
@@ -21,7 +21,7 @@
     /* Blue */
   
     /* Gray */
-    --shadow-light: 4px 4px 8px #ccccccf3, -4px -4px 8px #fffffff6;
+    // --shadow-light: 4px 4px 8px #ccccccf3, -4px -4px 8px #fffffff6;
     --shadow-light-small: 2px 2px 6px #ccccccf3, -2px -2px 6px #fffffff6;
     --shadow-light-inset: inset 4px 4px 8px #ccccccf3,
       inset -4px -4px 8px #fffffff6;
@@ -34,7 +34,7 @@
   
   
     /* Size */
-    --main-width: 500px;
+    // --main-width: 500px;
     --base-space: 10px;
     --font-size: 14px;
   
@@ -161,7 +161,9 @@
   }
   .main-header h1 {
       color: white;
-    font-size: calc(var(--font-size) * 1.5);
+      font-size: calc(var(--font-size) * 1.5);
+      //수정
+      padding: 0 180px;
   }
   
   .main-container {
@@ -214,7 +216,8 @@
   /* ToDoList */
   /* Header */
   .todos-header {
-    padding: var(--base-space) calc(var(--base-space) * 2);
+    padding: var(--base-space) calc(var(--base-space) * 16.5);
+    // padding: 10px 100px;
     
   }
   .todos-header h2 {
@@ -320,3 +323,431 @@
   // 반응형
   // 아이패드 기준 768px - 1024px
   // 모바일 기준 360px - 767px
+
+// 아이패드 기준 768px - 1024px
+  @media (max-width: 1024px){
+/* Layout */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--color-gray-light);
+  margin: 0 auto;
+}
+
+.categories {
+  display: flex;
+  margin-bottom: calc(var(--base-space) * 2);
+}
+
+.categories .btn:not(:last-of-type) {
+  margin-right: var(--base-space);
+}
+
+main {
+  position: relative;
+  width: var(--main-width);
+  margin: 0 auto;
+  border-radius: var(--base-space);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+}
+
+.main-header {
+  font-family:  $font-main;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--main-width);
+  padding: calc(var(--base-space) * 2);
+  border-radius: var(--base-space) var(--base-space) 0 0;
+  background-color: var(--color-blue);
+  background: $color-gray;
+
+
+
+
+
+}
+.main-header h1 {
+    color: white;
+  font-size: calc(var(--font-size) * 1.5);
+  padding: 0 130px;
+}
+
+.main-container {
+  overflow-y: auto;
+  max-height: 80vh;
+  margin-top: 78px;
+
+}
+.add-on .main-container {
+  margin-top: 0;
+}
+
+/* Add Todo Area */
+.add-todo {
+  display: none;
+  margin-top: 0;
+}
+.add-on .add-todo {
+  display: block;
+  margin-top: 78px;
+  background-color: var(--color-blue);
+}
+.add-todo .buttons {
+  padding: var(--base-space);
+  font-family: $font-con;
+}
+.add-todo .btn {
+  font-size: calc(var(--font-size) * 0.9);
+}
+.btn.add {
+  color: var(--color-blue-dark);
+}
+.border-container {
+  //수정
+  display: flex;
+  flex-direction: column;
+  margin: 0 calc(var(--base-space) );
+  border: 3px solid var(--color-blue-dark);
+  border-radius: calc(var(--base-space) / 2);
+  background-color: var(--color-gray-light);
+}
+.txtarea {
+  //수정
+  height: 80px;
+  margin: var(--base-space) var(--base-space);
+  padding: var(--base-space) / 2;
+  border-radius: calc(var(--base-space) / 3);
+  background-color: var(--color-gray-light);
+  box-shadow: var(--shadow-light-inset);
+  resize: none;
+}
+
+/* ToDoList */
+/* Header */
+.todos-header {
+  padding: var(--base-space) calc(var(--base-space) * 11.5);
+  
+}
+.todos-header h2 {
+  color: black;
+  font-size: var(--font-size);
+  font-weight:800;
+  font-family: $font-con;
+  
+}
+
+
+.incomplete .todos-header {
+  background-color: var(--color-blue-light);
+}
+
+.complete .todos-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 0 0 var(--base-space) var(--base-space);
+  background-color: var(--color-gray-dark);
+  background: $color-green;
+}
+.complete .todos-header h2 {
+  color: white;
+  margin-right: var(--base-space);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* List */
+.complete .todos {
+  display: none;
+}
+.complete .todos.display {
+  display: block;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  padding: calc(var(--base-space) * 2);
+  margin-bottom: calc(var(--base-space) / 2);
+}
+.incomplete .todo {
+  background-color: var(--color-gray-light);
+}
+.complete .todo {
+  background-color: var(--color-gray);
+}
+.complete .todo:last-of-type {
+  margin-bottom: 0;
+}
+
+.title {
+  word-break: break-all;
+  width: 70%;
+  padding: 0 var(--base-space);
+  font-size: calc(var(--font-size) * 1.1);
+  font-family: $font-con;
+}
+.edit-on .title {
+  display: none;
+}
+.complete .title {
+  text-decoration: line-through;
+  font-family: $font-con;
+}
+
+.input {
+  display: none;
+  margin-left: var(--base-space);
+  padding: calc(var(--base-space) / 2);
+  border-radius: calc(var(--base-space) / 2);
+  background-color: var(--color-gray-light);
+  box-shadow: var(--shadow-light-inset);
+}
+.txtarea:active,
+.txtarea:focus,
+.input:active,
+.input:focus {
+  box-shadow: var(--shadow-light-inset-small);
+  font-family: $font-con;
+}
+.edit-on .input {
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  margin-left: auto;
+}
+.buttons .btn:not(:last-of-type) {
+  margin-right: var(--base-space);
+}
+.btn.check,
+.btn.delete-all {
+  padding: 0;
+}
+
+  }
+
+
+ // 모바일 기준 360px - 767px
+ @media (max-width: 767px){
+/* Layout */
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: var(--color-gray-light);
+
+}
+
+.categories {
+  display: flex;
+  margin-bottom: calc(var(--base-space) * 2);
+}
+
+.categories .btn:not(:last-of-type) {
+  margin-right: var(--base-space);
+}
+
+main {
+  position: relative;
+  //수정
+  // padding: 0 70px;
+  width: var(--main-width);
+  border-radius: var(--base-space);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+}
+
+.main-header {
+  font-family:  $font-main;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--main-width);
+  padding: calc(var(--base-space) * 2);
+  border-radius: var(--base-space) var(--base-space) 0 0;
+  background-color: var(--color-blue);
+  background: $color-gray;
+
+
+
+
+
+}
+.main-header h1 {
+    color: white;
+  font-size: calc(var(--font-size) * 1.5);
+  //수정
+ padding: 0 35px;
+}
+
+.main-container {
+  overflow-y: auto;
+  max-height: 80vh;
+  margin-top: 78px;
+  //수정
+  // padding: 0 10px;
+}
+.add-on .main-container {
+  margin-top: 0;
+}
+
+/* Add Todo Area */
+.add-todo {
+  display: none;
+  margin-top: 0;
+}
+.add-on .add-todo {
+  display: block;
+  margin-top: 78px;
+  background-color: var(--color-blue);
+}
+.add-todo .buttons {
+  padding: var(--base-space);
+  font-family: $font-con;
+}
+.add-todo .btn {
+  font-size: calc(var(--font-size) * 0.9);
+}
+.btn.add {
+  color: var(--color-blue-dark);
+}
+.border-container {
+  //수정
+  display: flex;
+  flex-direction: column;
+  margin: 0 calc(var(--base-space) );
+  border: 3px solid var(--color-blue-dark);
+  border-radius: calc(var(--base-space) / 2);
+  background-color: var(--color-gray-light);
+}
+.txtarea {
+  //수정
+  height: 80px;
+  margin: var(--base-space) var(--base-space);
+  padding: var(--base-space) / 2;
+  border-radius: calc(var(--base-space) / 3);
+  background-color: var(--color-gray-light);
+  box-shadow: var(--shadow-light-inset);
+  resize: none;
+}
+
+/* ToDoList */
+/* Header */
+.todos-header {
+  padding: var(--base-space) calc(var(--base-space) * 2);
+  
+}
+.todos-header h2 {
+  color: black;
+  font-size: var(--font-size);
+  font-weight:800;
+  font-family: $font-con;
+  
+}
+
+
+.incomplete .todos-header {
+  background-color: var(--color-blue-light);
+}
+
+.complete .todos-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 0 0 var(--base-space) var(--base-space);
+  background-color: var(--color-gray-dark);
+  background: $color-green;
+}
+.complete .todos-header h2 {
+  color: white;
+  margin-right: var(--base-space);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* List */
+.complete .todos {
+  display: none;
+}
+.complete .todos.display {
+  display: block;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  padding: calc(var(--base-space) * 2);
+  margin-bottom: calc(var(--base-space) / 2);
+}
+.incomplete .todo {
+  background-color: var(--color-gray-light);
+}
+.complete .todo {
+  background-color: var(--color-gray);
+}
+.complete .todo:last-of-type {
+  margin-bottom: 0;
+}
+
+.title {
+  word-break: break-all;
+  width: 70%;
+  padding: 0 var(--base-space);
+  font-size: calc(var(--font-size) * 1.1);
+  font-family: $font-con;
+}
+.edit-on .title {
+  display: none;
+}
+.complete .title {
+  text-decoration: line-through;
+  font-family: $font-con;
+}
+
+.input {
+  display: none;
+  margin-left: var(--base-space);
+  padding: calc(var(--base-space) / 2);
+  border-radius: calc(var(--base-space) / 2);
+  background-color: var(--color-gray-light);
+  box-shadow: var(--shadow-light-inset);
+}
+.txtarea:active,
+.txtarea:focus,
+.input:active,
+.input:focus {
+  box-shadow: var(--shadow-light-inset-small);
+  font-family: $font-con;
+}
+.edit-on .input {
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  margin-left: auto;
+}
+.buttons .btn:not(:last-of-type) {
+  margin-right: var(--base-space);
+}
+.btn.check,
+.btn.delete-all {
+  padding: 0;
+}
+
+ } 
+
+
